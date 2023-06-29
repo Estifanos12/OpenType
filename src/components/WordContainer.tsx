@@ -5,7 +5,7 @@ type WordContainerProps = {
 const WordContainer = ({ word }: WordContainerProps) => {
   return (
     <div className='py-10'>
-      <p className='font-mono text-xl opacity-70'>{word}</p>
+      <p className='font-mono text-2xl tracking-wider leading-9'>{word}</p>
     </div>
   );
 };

@@ -11,12 +11,12 @@ import Restart from './components/Restart';
 function App() {
   const [time, setTime] = useState(15000);
   const { countdown, resetCountdown } = useCountdown(time);
-  const { word, updateWord } = useWord(100);
+  const { word, updateWord } = useWord(50);
 
   return (
     <div className='bg-primary min-h-screen text-accent'>
-      <main className=' max-w-5xl mx-auto'>
-        <Header />
+      <main className=' max-w-5xl mx-auto px-4 xl:px-0'>
+        <Header reset={resetCountdown} updateWords={updateWord} />
         <TimeCategory setTime={setTime} updateWords={updateWord} />
         <Countdown countdown={countdown} reset={resetCountdown} />
         <WordContainer word={word} />

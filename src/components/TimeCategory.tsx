@@ -10,10 +10,10 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
 
   return (
     <div className='flex justify-center items-center gap-3'>
-      <h2 className='font-mono text-xl'>Time Category</h2>
+      <h2 className='font-mono text-xl font-bold'>Time Category</h2>
       <div className='flex gap-4 bg-secondary rounded-lg'>
         <span
-          className={`category ${selected === 1 ? 'underline' : ''}`}
+          className={`category ${selected === 1 ? 'underline font-bold' : ''}`}
           onClick={() => {
             setTime(15000);
             updateWords();
@@ -23,7 +23,7 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
           15
         </span>
         <span
-          className={`category ${selected === 2 ? 'underline' : ''}`}
+          className={`category ${selected === 2 ? 'underline font-bold' : ''}`}
           onClick={() => {
             setTime(30000);
             updateWords();
@@ -33,7 +33,7 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
           30
         </span>
         <span
-          className={`category ${selected === 3 ? 'underline' : ''}`}
+          className={`category ${selected === 3 ? 'underline font-bold' : ''}`}
           onClick={() => {
             setTime(60000);
             updateWords();
