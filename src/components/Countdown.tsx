@@ -16,8 +16,8 @@ const Countdown = ({ countdown, reset }: CountdownProps) => {
   };
 
   return (
-    <div>
-      <div className='flex justify-end py-5'>
+    <div className='flex justify-end py-5'>
+      <div className='bg-secondary p-3 rounded-lg'>
         <span className='text-lg font-mono text-right'>
           {formatedCountdown.minutes < 10
             ? `0${formatedCountdown.minutes}`
