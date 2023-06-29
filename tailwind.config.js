@@ -9,6 +9,8 @@ export default {
       backgroundColor: {
         primary: "#003950",
         secondary: "#014961",
+      },
+      textColor: {
         accent: "#6DEAFF",
       }
     },
