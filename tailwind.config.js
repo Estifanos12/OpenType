@@ -12,6 +12,7 @@ export default {
       },
       textColor: {
         accent: "#6DEAFF",
+        type: "#BCA7CE"
       }
     },
   },
