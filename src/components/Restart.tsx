@@ -13,7 +13,7 @@ const Restart = ({ restart, updateWords }: RestartProps) => {
           restart();
           updateWords();
         }}
-        className='p-3 hover:bg-secondary rounded-full'
+        className='p-3 hover:bg-secondary hover:rotate-180 transition ease-out delay-200 rotate-0 rounded-full'
       >
         <MdRestartAlt className='text-5xl' />
       </button>
