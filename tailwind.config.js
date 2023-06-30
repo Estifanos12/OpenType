@@ -9,10 +9,24 @@ export default {
       backgroundColor: {
         primary: "#003950",
         secondary: "#014961",
+        tootip: "#1C2B3A",
+      },
+      outlineColor: {
+        focused: "#FFCEFB",
       },
       textColor: {
         accent: "#6DEAFF",
-        type: "#BCA7CE"
+        secondaryAccent: "#FFCEFB",
+        type: "#BCA7CE",
+      },
+      keyframes: {
+        appear: {
+          "0%": { opacity: 0 },
+          "50%": { opacity: 0 },
+          "75%": { opacity: 0 },
+          "90%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        }
       }
     },
   },
