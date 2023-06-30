@@ -10,37 +10,42 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
 
   return (
     <div className='flex justify-center items-center gap-3'>
-      <h2 className='font-mono text-xl font-bold'>Time Category</h2>
       <div className='flex gap-4 bg-secondary rounded-lg'>
         <span
-          className={`category ${selected === 1 ? 'underline font-bold' : ''}`}
+          className={`category ${
+            selected === 1 ? 'underline font-bold' : ''
+          } hover:underline`}
           onClick={() => {
             setTime(15000);
             updateWords();
             setSelected(1);
           }}
         >
-          15
+          15s
         </span>
         <span
-          className={`category ${selected === 2 ? 'underline font-bold' : ''}`}
+          className={`category ${
+            selected === 2 ? 'underline font-bold' : ''
+          } hover:underline`}
           onClick={() => {
             setTime(30000);
             updateWords();
             setSelected(2);
           }}
         >
-          30
+          30s
         </span>
         <span
-          className={`category ${selected === 3 ? 'underline font-bold' : ''}`}
+          className={`category ${
+            selected === 3 ? 'underline font-bold' : ''
+          } hover:underline`}
           onClick={() => {
             setTime(60000);
             updateWords();
             setSelected(3);
           }}
         >
-          60
+          60s
         </span>
       </div>
     </div>

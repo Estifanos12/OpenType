@@ -1,4 +1,5 @@
 import { MdAccountCircle } from 'react-icons/md';
+import Tooltip from './Tooltip';
 
 type HeaderProps = {
   reset: () => void;
@@ -16,11 +17,13 @@ const Header = ({ reset, updateWords }: HeaderProps) => {
         }}
       >
         <img src='/logo.svg' alt='EType' width={'50px'} height={'50px'} />
-        <h1 className='font-mono text-3xl font-bold'>EType.</h1>
+        <h1 className='font-mono text-3xl font-bold hover:underline'>EType.</h1>
       </div>
-      <div>
-        <MdAccountCircle className='text-5xl' />
-      </div>
+      <Tooltip tooltip='Profile'>
+        <div>
+          <MdAccountCircle className='text-5xl' />
+        </div>
+      </Tooltip>
     </header>
   );
 };
