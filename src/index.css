@@ -3,5 +3,40 @@
 @tailwind utilities;
 
 .category {
-  @apply p-2 rounded-md cursor-pointer font-mono text-lg;
+  @apply p-2 rounded-md cursor-pointer font-mono text-xl;
+}
+
+.socialHover {
+  @apply hover:bg-secondary rounded-full;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #003950;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #003950;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6deaff;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #014961;
 }
