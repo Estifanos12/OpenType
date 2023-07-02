@@ -3,10 +3,9 @@ import Tooltip from './Tooltip';
 
 type RestartProps = {
   restart: () => void;
-  updateWords: () => void;
 };
 
-const Restart = ({ restart, updateWords }: RestartProps) => {
+const Restart = ({ restart }: RestartProps) => {
   return (
     <div className='mt-10'>
       <Tooltip tooltip='Restart Test'>
@@ -14,7 +13,6 @@ const Restart = ({ restart, updateWords }: RestartProps) => {
           <button
             onClick={() => {
               restart();
-              updateWords();
             }}
             className='p-3 hover:bg-secondary hover:rotate-180 transition ease-out delay-200 rotate-0 rounded-full'
           >

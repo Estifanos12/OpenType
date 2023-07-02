@@ -1,15 +1,18 @@
 import { useState } from 'react';
 
+import { BiTimer } from 'react-icons/bi';
+
 type TimeCategoryProps = {
   setTime: React.Dispatch<React.SetStateAction<number>>;
-  updateWords: () => void;
+  restart: () => void;
 };
 
-const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
+const TimeCategory = ({ setTime, restart }: TimeCategoryProps) => {
   const [selected, setSelected] = useState(1);
 
   return (
     <div className='flex justify-center items-center gap-3'>
+      <BiTimer className='text-3xl' />
       <div className='flex gap-4 bg-secondary rounded-lg'>
         <span
           className={`category ${
@@ -17,7 +20,7 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
           } hover:underline`}
           onClick={() => {
             setTime(15000);
-            updateWords();
+            restart();
             setSelected(1);
           }}
         >
@@ -29,7 +32,7 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
           } hover:underline`}
           onClick={() => {
             setTime(30000);
-            updateWords();
+            restart();
             setSelected(2);
           }}
         >
@@ -41,7 +44,7 @@ const TimeCategory = ({ setTime, updateWords }: TimeCategoryProps) => {
           } hover:underline`}
           onClick={() => {
             setTime(60000);
-            updateWords();
+            restart();
             setSelected(3);
           }}
         >

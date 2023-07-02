@@ -1,36 +1,20 @@
+import { useMemo } from 'react';
+import Character from './Character';
+
 type WordContainerProps = {
   word: string;
-  focused: boolean;
-  setFocused: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const WordContainer = ({ word, focused, setFocused }: WordContainerProps) => {
-  return (
-    <div className='relative '>
-      <div
-        className='border-2 border-[#6DEAFF] rounded-md my-5 p-5 blur-md focus:blur-none focus:outline-focus'
-        tabIndex={0}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-      >
-        <div className='max-h-[45vh] overflow-y-scroll px-2'>
-          <p className='font-mono text-2xl tracking-wider leading-9'>{word}</p>
-        </div>
-      </div>
+const WordContainer = ({ word }: WordContainerProps) => {
+  const characters = useMemo(() => {
+    return word.split('');
+  }, [word]);
 
-      <div
-        className={` absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ${
-          focused ? 'hidden' : 'block'
-        }}`}
-      >
-        <span
-          className={`font-bold font-mono text-2xl ${
-            focused ? 'hidden' : 'block'
-          }`}
-        >
-          Focus to start typing
-        </span>
-      </div>
+  return (
+    <div className='relative left-0 top-0 opacity-80 font-mono text-2xl break-all'>
+      {characters.map((character) => {
+        return <Character character={character} />;
+      })}
     </div>
   );
 };
