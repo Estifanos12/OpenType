@@ -1,39 +1,51 @@
-import { useState } from 'react';
-
-import { useCountdown } from './hooks/useCountdown';
-import { useWord } from './hooks/useWord';
-import { useKeyDown } from './hooks/useKeyDown';
+import { useTyping } from './hooks/useTyping';
 
 import Countdown from './components/Countdown';
-import Header from './components/Header';
-import TimeCategory from './components/TimeCategory';
-import WordContainer from './components/WordContainer';
-import Restart from './components/Restart';
 import Footer from './components/Footer';
+import Header from './components/Header';
+import ModalComponent from './components/Modal';
+import ModalContent from "./components/ModalContent";
+import Restart from './components/Restart';
+import TimeCategory from './components/TimeCategory';
+import UserTyped from './components/UserTyped';
+import WordContainer from './components/WordContainer';
+import WordWrapper from './components/WordWrapper';
 
 function App() {
-  const [time, setTime] = useState(15000);
-  const [wordContainerFocused, setWordContainerFocused] = useState(false);
-  const { countdown, resetCountdown } = useCountdown(time);
-  const { word, updateWord } = useWord(100);
-  const { charTyped } = useKeyDown(wordContainerFocused);
+  const {
+    charTyped,
+    countdown,
+    word,
+    wordContainerFocused,
+    resetCountdown,
+    setTime,
+    setWordContainerFocused,
+    restartTest,
+    checkCharacter,
+    modalIsOpen,
+    closeModal,
+    openModal,
+  } = useTyping();
 
-  console.log(charTyped);
   return (
-    <div className='h-full text-accent'>
-      <main className=' max-w-5xl mx-auto px-4 xl:px-0'>
-        <Header reset={resetCountdown} updateWords={updateWord} />
-        <TimeCategory setTime={setTime} updateWords={updateWord} />
-        <Countdown countdown={countdown} reset={resetCountdown} />
-        <WordContainer
-          word={word}
-          focused={wordContainerFocused}
-          setFocused={setWordContainerFocused}
-        />
-        <Restart restart={resetCountdown} updateWords={updateWord} />
-        <Footer />
-      </main>
-    </div>
+    <main className=' max-w-5xl min-h-screen flex flex-col gap-4 text-accent mx-auto px-4 xl:px-0'>
+      <Header restart={restartTest} />
+      <TimeCategory setTime={setTime} restart={restartTest} />
+      <Countdown countdown={countdown} reset={resetCountdown} />
+      <WordWrapper
+        focused={wordContainerFocused}
+        setFocused={setWordContainerFocused}
+      >
+        <WordContainer word={word} />
+        <UserTyped word={word} check={checkCharacter} charTyped={charTyped} />
+      </WordWrapper>
+      <Restart restart={restartTest} />
+      <button onClick={() => openModal()}>open</button>
+      <Footer />
+      <ModalComponent isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <ModalContent />
+      </ModalComponent>
+    </main>
   );
 }
 
