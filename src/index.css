@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.category {
-  @apply p-2 rounded-md cursor-pointer font-mono text-xl;
-}
-
-.socialHover {
-  @apply hover:bg-secondary rounded-full;
-}
 
 * {
   margin: 0;
@@ -39,4 +32,41 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #014961;
+}
+
+.category {
+  @apply p-2 rounded-md cursor-pointer font-mono text-xl;
+}
+
+.socialHover {
+  @apply hover:bg-secondary rounded-full;
+}
+
+.character:last-child::after {
+  content: '';
+  width: 2px;
+  height: 24px;
+  margin-bottom: -2px;
+  display: inline-block;
+  background-color: #6deaff;
+  animation: cursorBlink 1.5s steps(2) infinite;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+
+@keyframes cursorBlink {
+  0% {
+    opacity: 0;
+  }
 }
