@@ -26,7 +26,7 @@ export default {
           "75%": { opacity: 0 },
           "90%": { opacity: 0 },
           "100%": { opacity: 1 },
-        }
+        },
       }
     },
   },
