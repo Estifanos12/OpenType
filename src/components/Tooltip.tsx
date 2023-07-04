@@ -1,16 +1,29 @@
+import { Tooltip as ReactToolTip } from 'react-tooltip';
+
 type TooltipProps = {
-  tooltip: string;
+  tooltipId: string;
+  delayShow?: number;
+  delayHide?: number;
+  textColor?: string;
   children: React.ReactNode;
 };
 
-const Tooltip = ({ tooltip, children }: TooltipProps) => {
+const Tooltip = ({
+  tooltipId,
+  children,
+  delayHide,
+  delayShow,
+}: TooltipProps) => {
   return (
-    <div className='group relative flex flex-col cursor-pointer'>
+    <>
       {children}
-      <div className='absolute opacity-0 top-[100%] left-[-50%] border-2 border-[#6DEAFF] p-3 rounded-lg text-center bg-tootip group-hover:animate-[appear_1s_ease_forwards]'>
-        <span className='font-mono text-md'>{tooltip}</span>
-      </div>
-    </div>
+      <ReactToolTip
+        id={tooltipId}
+        className={`font-mono bg-secondary text-lg text-secondaryAccent font-semibold}`}
+        delayHide={delayHide}
+        delayShow={delayShow}
+      />
+    </>
   );
 };
 

@@ -3,49 +3,45 @@ import { useState } from 'react';
 import { BiTimer } from 'react-icons/bi';
 
 type TimeCategoryProps = {
-  setTime: React.Dispatch<React.SetStateAction<number>>;
+  time: number;
+  setTime: (value: number) => void;
   restart: () => void;
 };
 
-const TimeCategory = ({ setTime, restart }: TimeCategoryProps) => {
-  const [selected, setSelected] = useState(1);
-
+const TimeCategory = ({ time, setTime, restart }: TimeCategoryProps) => {
   return (
-    <div className='flex justify-center items-center gap-3'>
+    <div className='flex items-center justify-center gap-3'>
       <BiTimer className='text-3xl' />
-      <div className='flex gap-4 bg-secondary rounded-lg'>
+      <div className='flex gap-4 rounded-lg bg-secondary'>
         <span
           className={`category ${
-            selected === 1 ? 'underline font-bold' : ''
+            time === 15000 ? 'font-bold underline' : ''
           } hover:underline`}
           onClick={() => {
             setTime(15000);
             restart();
-            setSelected(1);
           }}
         >
           15s
         </span>
         <span
           className={`category ${
-            selected === 2 ? 'underline font-bold' : ''
+            time === 30000 ? 'font-bold underline' : ''
           } hover:underline`}
           onClick={() => {
             setTime(30000);
             restart();
-            setSelected(2);
           }}
         >
           30s
         </span>
         <span
           className={`category ${
-            selected === 3 ? 'underline font-bold' : ''
+            time === 60000 ? 'font-bold underline' : ''
           } hover:underline`}
           onClick={() => {
             setTime(60000);
             restart();
-            setSelected(3);
           }}
         >
           60s

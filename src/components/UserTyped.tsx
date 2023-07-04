@@ -12,9 +12,8 @@ const UserTyped = ({ check, charTyped, word }: UserTypedProps) => {
     return charTyped.split('');
   }, [charTyped]);
 
-  console.log(word);
   return (
-    <div className='absolute left-0 top-0 font-mono text-2xl z-10 character break-all'>
+    <div className='character absolute left-0 top-0 z-10 break-all font-mono text-2xl'>
       {characters.map((_, index) => {
         return (
           <Character character={word.charAt(index)} state={check(index)} />

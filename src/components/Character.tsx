@@ -10,9 +10,11 @@ const Character = ({ state, character, className }: CharactersProps) => {
       className={`${
         state === undefined
           ? ''
-          : state === false
-          ? 'text-red-500'
-          : ' text-secondaryAccent'
+          : state === true
+          ? 'text-secondaryAccent'
+          : state === false && character === ' '
+          ? 'bg-red-600'
+          : 'text-red-600'
       } ${className}`}
     >
       {character}

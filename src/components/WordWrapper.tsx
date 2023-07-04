@@ -14,14 +14,14 @@ const WordWrapper = ({ children, focused, setFocused }: WordWrapperProps) => {
           focused ? 'opacity-0' : 'opacity-100'
         } flex items-center justify-center gap-3 transition-all duration-500 `}
       >
-        <MdCenterFocusStrong className='text-2xl text-center' />
-        <span className={`font-mono text-2xl text-center `}>
+        <MdCenterFocusStrong className='text-center text-2xl' />
+        <span className={`text-center font-mono text-2xl `}>
           Focus to start typing
         </span>
       </div>
       <div
-        className={`relative mt-5 focus:border-none focus:border-0 focus:outline-none ${
-          focused ? 'blur-none' : 'blur-md'
+        className={`relative mt-5 focus:border-0 focus:border-none focus:outline-none ${
+          focused ? 'blur-none' : 'cursor-pointer blur-md'
         } `}
         tabIndex={0}
         onFocus={() => setFocused(true)}

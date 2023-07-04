@@ -11,7 +11,7 @@ const WordContainer = ({ word }: WordContainerProps) => {
   }, [word]);
 
   return (
-    <div className='relative left-0 top-0 opacity-80 font-mono text-2xl break-all'>
+    <div className='relative left-0 top-0 break-all font-mono text-2xl opacity-80'>
       {characters.map((character) => {
         return <Character character={character} />;
       })}
