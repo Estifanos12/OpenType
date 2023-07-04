@@ -4,6 +4,8 @@ OpenType is a minimalistic typing speed testing app built with React and Tailwin
 
 ## Live Demo
 
+Check out the live demo [here](https://estifanos12.github.io/OpenType/).
+
 ## Current Features
 
 - **Typing Test**: Users can take a typing test to measure their typing speed and accuracy. The test includes random sentences/paragraphs, and the user's typing speed is calculated in words per minute (WPM).
