@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { BiTimer } from 'react-icons/bi';
 
 type TimeCategoryProps = {
