@@ -30,7 +30,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
         <div className=' grid grid-flow-col grid-rows-6 justify-center gap-4 sm:grid-rows-4 sm:justify-normal lg:grid-rows-2 lg:justify-normal lg:gap-10'>
           <Tooltip tooltipId='wpm'>
             <div
-              className='flex w-full flex-col items-center justify-center gap-2 rounded-lg bg-secondary p-5 print:bg-transparent'
+              className='flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-secondary p-5'
               data-tooltip-content='words per minute / characters per minute'
               data-tooltip-id='wpm'
             >

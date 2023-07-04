@@ -19,7 +19,7 @@ const Footer = () => {
           </Tooltip>
           <Tooltip tooltipId='whatsapp'>
             <Social
-              url='https://wa.me/251961646618'
+              url='https://wa.link/e3397e'
               tooltipContent='WhatsApp'
               tooltipId='whatsapp'
             >
