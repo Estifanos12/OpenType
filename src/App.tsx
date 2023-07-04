@@ -1,3 +1,4 @@
+import { useDetectDevice } from './hooks/useDetectDevice';
 import { useTyping } from './hooks/useTyping';
 
 import AboutPage from './components/About';
@@ -11,6 +12,7 @@ import TimeCategory from './components/TimeCategory';
 import UserTyped from './components/UserTyped';
 import WordContainer from './components/WordContainer';
 import WordWrapper from './components/WordWrapper';
+import MobileNotSupported from './components/MobileNotSupported';
 
 function App() {
   const {
@@ -32,43 +34,59 @@ function App() {
     openModal,
   } = useTyping();
 
+  const isMobile = useDetectDevice();
+
   return (
     <main className=' mx-auto flex min-h-screen max-w-5xl flex-col gap-4 px-4 text-accent xl:px-0'>
-      <Header
-        restart={restartTest}
-        openAboutModal={openModal}
-        closeAboutModal={closeModal}
-      />
-      <TimeCategory
-        time={time}
-        setTime={setLocalStorageValue}
-        restart={restartTest}
-      />
-      <Countdown countdown={countdown} reset={resetCountdown} />
-      <WordWrapper
-        focused={wordContainerFocused}
-        setFocused={setWordContainerFocused}
-      >
-        <WordContainer word={word} />
-        <UserTyped word={word} check={checkCharacter} charTyped={charTyped} />
-      </WordWrapper>
-      <Restart restart={restartTest} />
-      <Footer />
-      <ModalComponent
-        type='result'
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-      >
-        <ModalContent totalTime={time} results={results} history={history} />
-      </ModalComponent>
+      {isMobile ? (
+        <MobileNotSupported />
+      ) : (
+        <>
+          <Header
+            restart={restartTest}
+            openAboutModal={openModal}
+            closeAboutModal={closeModal}
+          />
+          <TimeCategory
+            time={time}
+            setTime={setLocalStorageValue}
+            restart={restartTest}
+          />
+          <Countdown countdown={countdown} reset={resetCountdown} />
+          <WordWrapper
+            focused={wordContainerFocused}
+            setFocused={setWordContainerFocused}
+          >
+            <WordContainer word={word} />
+            <UserTyped
+              word={word}
+              check={checkCharacter}
+              charTyped={charTyped}
+            />
+          </WordWrapper>
+          <Restart restart={restartTest} />
+          <Footer />
+          <ModalComponent
+            type='result'
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+          >
+            <ModalContent
+              totalTime={time}
+              results={results}
+              history={history}
+            />
+          </ModalComponent>
 
-      <ModalComponent
-        type='about'
-        isOpen={aboutModal}
-        onRequestClose={closeModal}
-      >
-        <AboutPage />
-      </ModalComponent>
+          <ModalComponent
+            type='about'
+            isOpen={aboutModal}
+            onRequestClose={closeModal}
+          >
+            <AboutPage />
+          </ModalComponent>
+        </>
+      )}
     </main>
   );
 }
