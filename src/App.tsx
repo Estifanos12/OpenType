@@ -1,5 +1,6 @@
 import { useTyping } from './hooks/useTyping';
 
+import AboutPage from './components/About';
 import Countdown from './components/Countdown';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -66,7 +67,7 @@ function App() {
         isOpen={aboutModal}
         onRequestClose={closeModal}
       >
-        <></>
+        <AboutPage />
       </ModalComponent>
     </main>
   );
