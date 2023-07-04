@@ -49,7 +49,7 @@ const ModalComponent = ({
       <div className='relative flex w-full justify-end'>
         <button
           onClick={() => onRequestClose(type)}
-          className='absolute right-0 top-0 '
+          className='absolute right-1 top-1'
         >
           <IoIosCloseCircle className='text-4xl text-secondaryAccent' />
         </button>
