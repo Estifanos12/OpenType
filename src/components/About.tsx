@@ -3,7 +3,7 @@ import { BsGithub } from 'react-icons/bs';
 
 const AboutPage = () => {
   return (
-    <div className='m-auto flex w-[90%] flex-col gap-7 font-mono text-lg text-accent'>
+    <div className='m-auto flex h-[90%] w-[90%] flex-col gap-7 py-10 font-mono text-lg text-accent'>
       <div className='flex flex-col gap-3'>
         <h1 className='text-3xl font-bold'>About OpenType</h1>
         <p className=''>
@@ -21,7 +21,7 @@ const AboutPage = () => {
           feedback on typing performance.
         </p>
       </div>
-      <div className='flex flex-col gap-3'>
+      <div className='mb-5 flex flex-col gap-3'>
         <h2 className='text-2xl font-bold'>Current Features</h2>
         <ul className='list-inside list-none space-y-2'>
           <li>
@@ -51,7 +51,7 @@ const AboutPage = () => {
         </ul>
       </div>
 
-      <div className='my-3 flex flex-col gap-1'>
+      <div className=' mt-auto flex flex-col gap-1'>
         <div className='flex items-center gap-3'>
           <BiLogoTelegram className='text-xl font-bold' />
           <h2 className='text-xl font-bold'>Contact:</h2>

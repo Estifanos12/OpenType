@@ -25,9 +25,9 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
   const { ref, image, getImage } = useScreenShot();
 
   return (
-    <div className='mx-auto flex w-[95%] flex-col font-mono text-accent'>
-      <div ref={ref} className='bg-primary px-5 py-7'>
-        <div className=' grid grid-flow-col grid-rows-6 justify-center gap-4 sm:grid-rows-4 sm:justify-normal lg:grid-rows-2 lg:justify-normal lg:gap-10'>
+    <div className='mx-auto flex h-full w-[95%] flex-col gap-10 pb-10 pt-8 font-mono text-accent'>
+      <div ref={ref} className='flex-[3]  bg-primary  px-5 py-7'>
+        <div className=' grid grid-flow-col grid-rows-6 justify-center gap-4 sm:grid-rows-4 sm:justify-normal lg:grid-rows-2 lg:justify-normal lg:gap-10 '>
           <Tooltip tooltipId='wpm'>
             <div
               className='flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-secondary p-5'
@@ -112,40 +112,40 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
         </div>
       </div>
 
-      <div className='mt-5 flex flex-col gap-14 px-5'>
-        <div>
-          <div className='flex items-center gap-2'>
-            <h2 className='text-3xl'>watch history</h2>
-            <CopyToClipboard
-              text={history.typedHistory}
-              onCopy={() => {
-                setCopied(true);
-                setTimeout(() => {
-                  setCopied(false);
-                }, 2000);
-              }}
-            >
-              <IoCopy className='cursor-pointer text-xl hover:text-secondaryAccent' />
-            </CopyToClipboard>
-            <div className='rounded-md  bg-secondary'>
-              {copied === true ? <span className='p-5 '>Copied ✅</span> : null}
-            </div>
-          </div>
-          <div className='mt-3 text-xl'>
-            {history.typedHistory.split('').map((char, index) => {
-              return (
-                <Character
-                  key={index}
-                  character={history.wordHistory[index]}
-                  state={history.wordHistory[index] === char}
-                />
-              );
-            })}
+      <div className='flex-[3] px-5'>
+        <div className='flex items-center gap-2'>
+          <h2 className='text-3xl'>watch history</h2>
+          <CopyToClipboard
+            text={history.typedHistory}
+            onCopy={() => {
+              setCopied(true);
+              setTimeout(() => {
+                setCopied(false);
+              }, 2000);
+            }}
+          >
+            <IoCopy className='cursor-pointer text-xl hover:text-secondaryAccent' />
+          </CopyToClipboard>
+          <div className='rounded-md  bg-secondary'>
+            {copied === true ? <span className='p-5 '>Copied ✅</span> : null}
           </div>
         </div>
+        <div className='mt-3 text-xl'>
+          {history.typedHistory.split('').map((char, index) => {
+            return (
+              <Character
+                key={index}
+                character={history.wordHistory[index]}
+                state={history.wordHistory[index] === char}
+              />
+            );
+          })}
+        </div>
+      </div>
 
+      <div className='flex flex-[1] flex-col px-5'>
         <div
-          className='group flex cursor-pointer items-center gap-2'
+          className='group mt-auto flex cursor-pointer items-center gap-2 '
           onClick={async () => {
             try {
               getImage();
@@ -165,7 +165,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
           }}
         >
           <FaCameraRetro className=' text-2xl group-hover:text-secondaryAccent' />
-          <span className='hover:text-secondaryAccent group-hover:text-secondaryAccent group-hover:underline'>
+          <span className='text-lg hover:text-secondaryAccent group-hover:text-secondaryAccent group-hover:underline'>
             Screenshot your results and share to your friends🔥
           </span>
           <div className='rounded-md  bg-secondary'>

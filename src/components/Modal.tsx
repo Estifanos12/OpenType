@@ -14,10 +14,11 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    width: '85%',
-    height: '90%',
+    width: '80%',
+    maxWidth: '1024px',
+    maxHeight: '90%',
     marginRight: '-50%',
-    padding: 10,
+    padding: 5,
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#003950',
     color: '#fff',
@@ -45,8 +46,11 @@ const ModalComponent = ({
       onRequestClose={() => onRequestClose(type)}
       closeTimeoutMS={300}
     >
-      <div className='flex w-full justify-end'>
-        <button onClick={() => onRequestClose(type)}>
+      <div className='relative flex w-full justify-end'>
+        <button
+          onClick={() => onRequestClose(type)}
+          className='absolute right-0 top-0 '
+        >
           <IoIosCloseCircle className='text-4xl text-secondaryAccent' />
         </button>
       </div>
