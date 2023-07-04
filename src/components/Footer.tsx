@@ -5,9 +5,9 @@ import Social from './Social';
 
 const Footer = () => {
   return (
-    <footer className='mt-auto mb-3'>
-      <div className=' flex justify-between items-center '>
-        <div className='flex justify-center items-center '>
+    <footer className='mb-3 mt-auto'>
+      <div className=' flex items-center justify-between '>
+        <div className='flex items-center justify-center '>
           <Tooltip tooltipId='Github'>
             <Social
               url='http://github.com/Estifanos12'
@@ -42,10 +42,10 @@ const Footer = () => {
           <BsCodeSlash className='text-2xl font-bold' />
           <Tooltip tooltipId='source-code' delayHide={200}>
             <a
-              href='http://github.com/Estifanos12/Typing_Speed_Game'
+              href='http://github.com/Estifanos12/OpenType'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:underline text-xl font-mono'
+              className='font-mono text-xl hover:underline'
               data-tooltip-content='Give me a star 😊'
               data-tooltip-id='source-code'
             >
