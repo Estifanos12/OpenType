@@ -1,33 +1,64 @@
 import { useCallback, useState } from 'react';
 
 import { useCountdown } from './useCountdown';
-import { useCursorPosition } from './useCursorPosition';
 import { useKeyDown } from './useKeyDown';
+import { useLocalStorage } from './useLocalStorage';
 import { useModal } from './useModal';
 import { useWord } from './useWord';
 
+import {
+  calculateAccuracy,
+  calculateErrorPercentage,
+  calculateWPM,
+} from '../utils';
+
+import { Results } from '../types';
+import { HistoryType } from '../types';
+
 export const useTyping = () => {
-  const [time, setTime] = useState(15000);
+  const [results, setResults] = useState<Results>({
+    accuracy: 0,
+    wpm: 0,
+    cpm: 0,
+    error: 0,
+  });
+
+  const [history, setHistory] = useState<HistoryType>({
+    wordHistory: '',
+    typedHistory: '',
+  });
+
+  const { time, setLocalStorageValue } = useLocalStorage('time');
   const [wordContainerFocused, setWordContainerFocused] = useState(false);
+
   const { countdown, resetCountdown, startCountdown } = useCountdown(time);
-  const { word, updateWord } = useWord(30);
-  const { charTyped, resetCharTyped, typingState, setTypingState } =
-    useKeyDown(wordContainerFocused);
-  const { cursorPosition, resetCursorPointer } = useCursorPosition();
-  const { modalIsOpen, openModal, closeModal } = useModal();
+  const { word, updateWord, totalWord } = useWord(30);
+  const {
+    charTyped,
+    resetCharTyped,
+    typingState,
+    setTypingState,
+    cursorPosition,
+    resetCursorPointer,
+    totalCharacterTyped,
+    setTotalCharacterTyped,
+  } = useKeyDown(wordContainerFocused);
+  const { modalIsOpen, aboutModal, openModal, closeModal } = useModal();
 
   const restartTest = useCallback(() => {
     resetCountdown();
-    updateWord();
+    updateWord(true);
     resetCursorPointer();
     resetCharTyped();
     setTypingState('idle');
+    setTotalCharacterTyped('');
   }, [
     resetCountdown,
     updateWord,
     resetCursorPointer,
     resetCharTyped,
     setTypingState,
+    setTotalCharacterTyped,
   ]);
 
   const checkCharacter = useCallback(
@@ -53,28 +84,43 @@ export const useTyping = () => {
   }
 
   if (countdown === 0) {
-    // setTime(time);
-    // setTypingState('idle');
-    // setWordContainerFocused(false);]
-    // TODO: Add a modal to show the results
-    openModal();
+    const accuracy = calculateAccuracy(totalWord, totalCharacterTyped);
+    const { wpm, cpm } = calculateWPM(totalCharacterTyped, totalWord, time);
+    const error = calculateErrorPercentage(accuracy);
+
+    setResults({
+      accuracy,
+      wpm,
+      cpm,
+      error,
+    });
+
+    setHistory({
+      wordHistory: totalWord,
+      typedHistory: totalCharacterTyped,
+    });
+
+    openModal('result');
     restartTest();
   }
 
   return {
+    charTyped,
+    countdown,
+    cursorPosition,
+    modalIsOpen,
+    aboutModal,
+    results,
+    time,
+    history,
     word,
     wordContainerFocused,
     setWordContainerFocused,
-    charTyped,
-    countdown,
     resetCountdown,
-    time,
-    setTime,
+    setLocalStorageValue,
     updateWord,
-    cursorPosition,
     restartTest,
     checkCharacter,
-    modalIsOpen,
     closeModal,
     openModal,
   };
