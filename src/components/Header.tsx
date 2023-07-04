@@ -13,7 +13,7 @@ const Header = ({ restart, openAboutModal }: HeaderProps) => {
   return (
     <header className='flex items-center justify-between py-8'>
       <div className='flex cursor-pointer items-center gap-3'>
-        <img src='/logo.svg' alt='EType' width={'50px'} height={'50px'} />
+        <img src='./logo.svg' alt='EType' width={'50px'} height={'50px'} />
         <h1 className='font-mono text-3xl font-bold hover:underline'>
           OpenType.
         </h1>
