@@ -55,6 +55,6 @@ Build the project for production
 npm run build or yarn build
 ```
 
-## Acknowledgements
+## Acknowledgement
 
 - [MonkeyType](https://www.monkeytype.com) - for the inspiration and design ideas.
