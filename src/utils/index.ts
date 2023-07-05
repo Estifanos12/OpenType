@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker';
 
+import { AccuracyMetrics } from '../types';
+
 export const isAllowedCode = (code: string): boolean => {
   return (
     code.startsWith('Key') ||
@@ -35,24 +37,33 @@ export const generateWord = (n: number): string => {
 };
 
 export const calculateAccuracy = (expectedWord: string, typedWord: string) => {
-  let correctWords = 0;
+  let correctChars = 0;
   for (let i = 0; i < typedWord.length; i++) {
     if (typedWord[i] === expectedWord[i]) {
-      correctWords++;
+      correctChars++;
     }
   }
-  return (correctWords / typedWord.length) * 100;
+
+  const accuracyMetrics: AccuracyMetrics = {
+    correctChars,
+    incorrectChars: typedWord.length - correctChars,
+    accuracy: (correctChars / typedWord.length) * 100,
+  };
+  return accuracyMetrics;
 };
 
 export const calculateWPM = (
   typedWord: string,
-  expectedWord: string,
+  accuracy: number,
   time: number
 ) => {
-  const words = expectedWord.slice(0, typedWord.length).split(' ');
   const minutes = time / 60000;
+  const wordsTyped = typedWord.length / 5;
+  const grossWPM = wordsTyped / minutes;
+  const netWPM = Math.round(grossWPM * (accuracy / 100));
+
   const results = {
-    wpm: words.length / minutes,
+    wpm: netWPM,
     cpm: typedWord.length / minutes,
   };
   return results;

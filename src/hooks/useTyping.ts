@@ -84,8 +84,8 @@ export const useTyping = () => {
   }
 
   if (countdown === 0) {
-    const accuracy = calculateAccuracy(totalWord, totalCharacterTyped);
-    const { wpm, cpm } = calculateWPM(totalCharacterTyped, totalWord, time);
+    const { accuracy } = calculateAccuracy(totalWord, totalCharacterTyped);
+    const { wpm, cpm } = calculateWPM(totalCharacterTyped, accuracy, time);
     const error = calculateErrorPercentage(accuracy);
 
     setResults({
