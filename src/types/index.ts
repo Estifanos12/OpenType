@@ -5,6 +5,12 @@ export interface Results {
   error: number;
 }
 
+export interface AccuracyMetrics {
+  correctChars: number;
+  incorrectChars: number;
+  accuracy: number;
+}
+
 export interface HistoryType {
   wordHistory: string;
   typedHistory: string;
