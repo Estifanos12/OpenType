@@ -15,7 +15,7 @@ import {
 import { Results } from '../types';
 import { HistoryType } from '../types';
 
-export const useTyping = () => {
+export const useSystem = () => {
   const [results, setResults] = useState<Results>({
     accuracy: 0,
     wpm: 0,
@@ -28,20 +28,20 @@ export const useTyping = () => {
     typedHistory: '',
   });
 
-  const { time, setLocalStorageValue } = useLocalStorage('time');
+  const { setLocalStorageValue, getLocalStorageValue } = useLocalStorage();
   const [wordContainerFocused, setWordContainerFocused] = useState(false);
-
+  const [time, setTime] = useState(getLocalStorageValue('time') || 15000);
   const { countdown, resetCountdown, startCountdown } = useCountdown(time);
   const { word, updateWord, totalWord } = useWord(30);
   const {
     charTyped,
-    resetCharTyped,
     typingState,
-    setTypingState,
     cursorPosition,
-    resetCursorPointer,
     totalCharacterTyped,
+    resetCharTyped,
+    resetCursorPointer,
     setTotalCharacterTyped,
+    setTypingState,
   } = useKeyDown(wordContainerFocused);
   const { modalIsOpen, aboutModal, openModal, closeModal } = useModal();
 
@@ -116,6 +116,7 @@ export const useTyping = () => {
     word,
     wordContainerFocused,
     setWordContainerFocused,
+    setTime,
     resetCountdown,
     setLocalStorageValue,
     updateWord,
