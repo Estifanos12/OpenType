@@ -15,6 +15,7 @@ const StyledButton = styled.button`
     background-color: ${(props) => props.theme.background.secondary};
   }
 `;
+
 const Restart = ({ restart }: RestartProps) => {
   const { systemTheme } = useThemeContext();
   return (
