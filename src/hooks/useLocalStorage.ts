@@ -1,36 +1,22 @@
-import { useState, useCallback } from 'react';
+import { Theme } from '../types/index';
 
-export const useLocalStorage = (key: string) => {
-  const [time, setTime] = useState<number>(() => {
+export const useLocalStorage = () => {
+  const setLocalStorageValue = (key: string, value: number | Theme) => {
     try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : 15000;
+      window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.log(error);
-      return 15000;
     }
-  });
+  };
 
-  const setLocalStorageValue = useCallback(
-    (value: number) => {
-      try {
-        window.localStorage.setItem(key, JSON.stringify(value));
-        setTime(value);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [key]
-  );
-
-  const getLocalStorageValue = useCallback(() => {
+  const getLocalStorageValue = (key: string) => {
     try {
       const value = window.localStorage.getItem(key);
-      setTime(value ? JSON.parse(value) : 15000);
+      return value ? JSON.parse(value) : null;
     } catch (error) {
       console.log(error);
     }
-  }, [key]);
+  };
 
-  return { time, setLocalStorageValue, getLocalStorageValue };
+  return { setLocalStorageValue, getLocalStorageValue };
 };
