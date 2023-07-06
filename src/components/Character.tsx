@@ -3,7 +3,7 @@ import { useThemeContext } from '../hooks/useTheme';
 type CharactersProps = {
   state?: boolean;
   character: string;
-  className?: React.CSSProperties;
+  className?: string;
 };
 
 const Character = ({ state, character, className }: CharactersProps) => {
