@@ -12,8 +12,8 @@ import {
   calculateWPM,
 } from '../utils';
 
-import { Results } from '../types';
-import { HistoryType } from '../types';
+import type { Results } from '../types';
+import type { HistoryType } from '../types';
 
 export const useSystem = () => {
   const [results, setResults] = useState<Results>({
