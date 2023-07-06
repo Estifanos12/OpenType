@@ -19,7 +19,7 @@ const Tooltip = ({
       {children}
       <ReactToolTip
         id={tooltipId}
-        className={`font-mono bg-secondary text-lg text-secondaryAccent font-semibold}`}
+        className={`text-md font-mono font-semibold`}
         delayHide={delayHide}
         delayShow={delayShow}
       />

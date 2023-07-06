@@ -3,7 +3,7 @@ import { BsGithub } from 'react-icons/bs';
 
 const AboutPage = () => {
   return (
-    <div className='m-auto flex h-[90%] w-[90%] flex-col gap-7 py-10 font-mono text-lg text-accent'>
+    <div className='m-auto flex h-[90%] w-[90%] flex-col gap-7 py-10 font-mono text-lg'>
       <div className='flex flex-col gap-3'>
         <h1 className='text-3xl font-bold'>About OpenType</h1>
         <p className=''>
@@ -12,7 +12,7 @@ const AboutPage = () => {
           <a
             href='http://www.monkeytype.com'
             target='_blank'
-            className='hover:text-secondaryAccent hover:underline'
+            className='hover:underline'
           >
             MonkeyType
           </a>
@@ -58,7 +58,7 @@ const AboutPage = () => {
           <a
             href='http://t.me/estif1727'
             target='_blank'
-            className='hover:text-secondaryAccent hover:underline'
+            className='hover:underline'
             rel='noopener noreferrer'
           >
             Telegram
@@ -67,7 +67,7 @@ const AboutPage = () => {
           <a
             href='https://wa.link/e3397e'
             target='_blank'
-            className='hover:text-secondaryAccent hover:underline'
+            className='hover:underline'
             rel='noopener noreferrer'
           >
             Whatsapp
@@ -79,7 +79,7 @@ const AboutPage = () => {
           <a
             href='http://github.com/Estifanos12/OpenType'
             target='_blank'
-            className='hover:text-secondaryAccent hover:underline'
+            className='hover:underline'
             rel='noopener noreferrer'
           >
             Github Repo

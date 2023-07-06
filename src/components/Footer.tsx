@@ -1,9 +1,19 @@
+import styled from 'styled-components';
 import { BsGithub, BsTelegram, BsWhatsapp, BsCodeSlash } from 'react-icons/bs';
+
+import { useThemeContext } from '../hooks/useTheme';
 
 import Tooltip from './Tooltip';
 import Social from './Social';
 
+const StyledLink = styled.a`
+  &:hover {
+    color: ${(props) => props.theme.text.title};
+  }
+`;
+
 const Footer = () => {
+  const { systemTheme } = useThemeContext();
   return (
     <footer className='mb-3 mt-auto'>
       <div className=' flex items-center justify-between '>
@@ -40,8 +50,9 @@ const Footer = () => {
 
         <div className='flex items-center gap-2'>
           <BsCodeSlash className='text-2xl font-bold' />
-          <Tooltip tooltipId='source-code' delayHide={200}>
-            <a
+          <Tooltip tooltipId='source-code'>
+            <StyledLink
+              theme={systemTheme}
               href='http://github.com/Estifanos12/OpenType'
               target='_blank'
               rel='noopener noreferrer'
@@ -50,7 +61,7 @@ const Footer = () => {
               data-tooltip-id='source-code'
             >
               Source Code ⭐
-            </a>
+            </StyledLink>
           </Tooltip>
         </div>
       </div>

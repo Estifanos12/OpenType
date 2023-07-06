@@ -1,6 +1,8 @@
 import Modal from 'react-modal';
 import { IoIosCloseCircle } from 'react-icons/io';
 
+import { useThemeContext } from '../hooks/useTheme';
+
 type ModalProps = {
   type: string;
   isOpen: boolean;
@@ -20,8 +22,6 @@ const customStyles = {
     marginRight: '-50%',
     padding: 5,
     transform: 'translate(-50%, -50%)',
-    backgroundColor: '#003950',
-    color: '#fff',
     border: 'none',
   },
   overlay: {
@@ -37,10 +37,22 @@ const ModalComponent = ({
   onRequestClose,
   children,
 }: ModalProps) => {
+  const { systemTheme } = useThemeContext();
+
+  const styles = {
+    content: {
+      ...customStyles.content,
+      backgroundColor: systemTheme.background.primary,
+      color: systemTheme.text.title,
+    },
+    overlay: {
+      ...customStyles.overlay,
+    },
+  };
   return (
     <Modal
       isOpen={isOpen}
-      style={customStyles}
+      style={styles}
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
       onRequestClose={() => onRequestClose(type)}
@@ -51,10 +63,15 @@ const ModalComponent = ({
           onClick={() => onRequestClose(type)}
           className='absolute right-1 top-1'
         >
-          <IoIosCloseCircle className='text-4xl text-secondaryAccent' />
+          <IoIosCloseCircle
+            className='text-4xl'
+            style={{
+              color: systemTheme.text.secondary,
+            }}
+          />
         </button>
       </div>
-      {children}
+      <div style={{ color: systemTheme.text.title }}>{children}</div>
     </Modal>
   );
 };

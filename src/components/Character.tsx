@@ -1,3 +1,5 @@
+import { useThemeContext } from '../hooks/useTheme';
+
 type CharactersProps = {
   state?: boolean;
   character: string;
@@ -5,17 +7,19 @@ type CharactersProps = {
 };
 
 const Character = ({ state, character, className }: CharactersProps) => {
+  const { systemTheme } = useThemeContext();
   return (
     <span
-      className={`${
-        state === undefined
-          ? ''
-          : state === true
-          ? 'text-secondaryAccent'
-          : state === false && character === ' '
-          ? 'bg-red-600'
-          : 'text-red-600'
-      } ${className}`}
+      style={{
+        color:
+          state === undefined
+            ? ''
+            : state === true
+            ? systemTheme.text.secondary
+            : '#BD0101',
+        backgroundColor: state === false && character === ' ' ? '#BD0101' : '',
+      }}
+      className={` ${className}`}
     >
       {character}
     </span>

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { useThemeContext } from '../hooks/useTheme';
+
 type CountdownProps = {
   countdown: number;
   reset: () => void;
@@ -15,10 +17,22 @@ const Countdown = ({ countdown, reset }: CountdownProps) => {
     seconds: new Date(countdown).getUTCSeconds(),
   };
 
+  const { systemTheme } = useThemeContext();
+
   return (
     <div className='flex justify-end'>
-      <div className='bg-secondary p-3 rounded-lg'>
-        <span className='font-mono text-right text-xl'>
+      <div
+        className=' rounded-lg p-3'
+        style={{
+          backgroundColor: systemTheme.background.secondary,
+        }}
+      >
+        <span
+          className='text-right font-mono text-xl'
+          style={{
+            color: systemTheme.text.secondary,
+          }}
+        >
           {formatedCountdown.minutes < 10
             ? `0${formatedCountdown.minutes}`
             : formatedCountdown.minutes}

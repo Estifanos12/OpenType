@@ -1,3 +1,7 @@
+import styled from 'styled-components';
+
+import { useThemeContext } from '../hooks/useTheme';
+
 type SocialProps = {
   url: string;
   tooltipContent?: string;
@@ -5,18 +9,27 @@ type SocialProps = {
   children: React.ReactNode;
 };
 
+const StyledSocial = styled.a`
+  &:hover {
+    color: ${(props) => props.theme.text.title};
+    background-color: ${(props) => props.theme.background.secondary};
+  }
+`;
+
 const Social = ({ url, tooltipContent, tooltipId, children }: SocialProps) => {
+  const { systemTheme } = useThemeContext();
   return (
-    <a
+    <StyledSocial
+      theme={systemTheme}
       href={url}
       target='_blank'
       rel='noopener noreferrer'
-      className='socialHover p-3'
+      className='rounded-full p-3'
       data-tooltip-content={tooltipContent}
       data-tooltip-id={tooltipId}
     >
       {children}
-    </a>
+    </StyledSocial>
   );
 };
 
