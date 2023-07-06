@@ -9,6 +9,7 @@ export const useWord = (numberOfWords: number) => {
   const appendWord = useCallback((word: string) => {
     setTotalWord((prev) => prev + word);
   }, []);
+
   const eraseWord = useCallback((word: string) => {
     setTotalWord(word);
   }, []);
