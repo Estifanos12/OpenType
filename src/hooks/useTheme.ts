@@ -4,7 +4,7 @@ import { useLocalStorage } from './useLocalStorage';
 
 import { ThemeContext } from '../context/ThemeContext';
 import { theme } from '../utils';
-import { Theme } from '../types';
+import type { Theme } from '../types';
 
 export const useTheme = () => {
   const { getLocalStorageValue, setLocalStorageValue } = useLocalStorage();
