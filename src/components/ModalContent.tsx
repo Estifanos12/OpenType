@@ -8,11 +8,10 @@ import { IoCopy } from 'react-icons/io5';
 import { FaCameraRetro } from 'react-icons/fa';
 
 import Character from './Character';
-import Tooltip from './Tooltip';
+import ResultCard from './ResultCard';
 
 import type { Results } from '../types';
 import type { HistoryType } from '../types';
-import ResultCard from './ResultCard';
 
 type ModalContentProps = {
   totalTime: number;
