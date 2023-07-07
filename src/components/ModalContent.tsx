@@ -96,11 +96,13 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
           <h2 className='text-3xl'>watch history</h2>
           <button
             onClick={async () => {
-              await copyTextToClipboard(history.typedHistory);
-              setCopied(true);
-              setTimeout(() => {
-                setCopied(false);
-              }, 2000);
+              const isCopied = await copyTextToClipboard(history.typedHistory);
+              if (isCopied) {
+                setCopied(true);
+                setTimeout(() => {
+                  setCopied(false);
+                }, 2000);
+              }
             }}
           >
             <IoCopy className='cursor-pointer text-xl' />
