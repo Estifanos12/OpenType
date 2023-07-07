@@ -30,7 +30,7 @@ export const useSystem = () => {
 
   const { setLocalStorageValue, getLocalStorageValue } = useLocalStorage();
   const [wordContainerFocused, setWordContainerFocused] = useState(false);
-  const [time, setTime] = useState(getLocalStorageValue('time') || 15000);
+  const [time, setTime] = useState(() => getLocalStorageValue('time') || 15000);
   const { countdown, resetCountdown, startCountdown } = useCountdown(time);
   const { word, updateWord, totalWord } = useWord(30);
   const {
