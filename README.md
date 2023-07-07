@@ -15,6 +15,14 @@ Check out the live demo [here](https://estifanos12.github.io/OpenType/).
 - **Change Theme**: Users can change the theme of the app based on their preference from available theme palette.
 - **Responsive Design**: The user interface is designed to be responsive and adapt to different screen sizes, making it accessible on various laptops or PCs.
 
+## Todo Features
+
+- [ ] Track user's typing history.
+- [ ] Add more languages.
+- [ ] Add more themes.
+- [ ] Add virtual keyboard.
+- [ ] Add difficulty level.
+
 ## Screenshots
 
 <img width="500" alt="Screen Shot 2022-08-28 at 9 15 36 AM" src="https://github.com/Estifanos12/OpenType/blob/main/screenshots/screenshot.jpg?raw=true">
