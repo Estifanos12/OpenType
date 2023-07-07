@@ -32,7 +32,7 @@ const Restart = ({ restart }: RestartProps) => {
             data-tooltip-content='Restart Test'
             data-tooltip-place='bottom'
           >
-            <MdRestartAlt className='text-5xl' />
+            <MdRestartAlt className='text-2xl lg:text-3xl ' />
           </StyledButton>
         </div>
       </Tooltip>

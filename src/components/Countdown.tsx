@@ -28,7 +28,7 @@ const Countdown = ({ countdown, reset }: CountdownProps) => {
         }}
       >
         <span
-          className='text-right font-mono text-xl'
+          className='text-right font-mono text-lg lg:text-xl'
           style={{
             color: systemTheme.text.secondary,
           }}

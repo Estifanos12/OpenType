@@ -17,13 +17,15 @@ body {
   @apply cursor-pointer rounded-md p-2 font-mono text-xl;
 }
 
-.character:last-child::after {
-  content: '';
-  width: 2px;
-  height: 24px;
-  margin-bottom: -2px;
-  display: inline-block;
-  animation: cursorBlink 1.5s steps(2) infinite;
+@layer components {
+  .character:last-child::after {
+    content: '';
+    width: 2px;
+    height: 24px;
+    margin-bottom: -2px;
+    display: inline-block;
+    animation: cursorBlink 1.5s steps(2) infinite;
+  }
 }
 
 .ReactModal__Overlay {

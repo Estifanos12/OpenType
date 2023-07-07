@@ -93,7 +93,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
 
       <div className='flex-[3] px-5'>
         <div className='flex items-center gap-2'>
-          <h2 className='text-3xl'>watch history</h2>
+          <h2 className='text-xl lg:text-2xl'>watch history</h2>
           <button
             onClick={async () => {
               const isCopied = await copyTextToClipboard(history.typedHistory);
@@ -123,7 +123,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
             ) : null}
           </div>
         </div>
-        <div className='mt-3 text-xl'>
+        <div className='mt-3 text-lg lg:text-xl'>
           {history.typedHistory.split('').map((char, index) => {
             return (
               <Character
@@ -157,7 +157,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
             }
           }}
         >
-          <FaCameraRetro className=' text-2xl' />
+          <FaCameraRetro className=' text-xl' />
           <span className='text-lg hover:underline'>
             Screenshot your results and share to your friends🔥
           </span>
@@ -169,7 +169,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
           >
             {imageCopied === true ? (
               <span
-                className='p-5 '
+                className='p-5 text-center'
                 style={{ color: systemTheme.text.secondary }}
               >
                 Image copied to clipboard 😊

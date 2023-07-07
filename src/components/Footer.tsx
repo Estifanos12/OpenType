@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className='flex items-center gap-2'>
-          <BsCodeSlash className='text-2xl font-bold' />
+          <BsCodeSlash className='text-xl font-bold' />
           <Tooltip tooltipId='source-code'>
             <StyledLink
               theme={systemTheme}

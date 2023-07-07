@@ -15,7 +15,7 @@ const WordWrapper = ({ children, focused, setFocused }: WordWrapperProps) => {
         } flex items-center justify-center gap-3 transition-all duration-500 `}
       >
         <MdCenterFocusStrong className='text-center text-2xl' />
-        <span className={`text-center font-mono text-2xl `}>
+        <span className={`text-center font-mono text-lg `}>
           Focus to start typing
         </span>
       </div>

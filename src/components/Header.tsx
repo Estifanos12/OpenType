@@ -76,7 +76,9 @@ const Header = ({ restart, openAboutModal }: HeaderProps) => {
             ></path>
           </g>
         </StyledSvg>
-        <h1 className={`font-mono text-3xl font-bold hover:underline`}>
+        <h1
+          className={`font-mono text-2xl font-bold hover:underline lg:text-3xl`}
+        >
           OpenType.
         </h1>
         <Tooltip tooltipId='keyboard'>
@@ -88,7 +90,7 @@ const Header = ({ restart, openAboutModal }: HeaderProps) => {
             data-tooltip-id='keyboard'
             data-tooltip-content='Restart'
           >
-            <BsKeyboardFill className='text-3xl ' />
+            <BsKeyboardFill className='text-2xl lg:text-3xl ' />
           </div>
         </Tooltip>
       </div>
