@@ -12,6 +12,7 @@ Check out the live demo [here](https://estifanos12.github.io/OpenType/).
 - **Time Category**: Users can adjust typing duration to 15s, 30s, or 60s according to their preference.
 - **Statistics**: The app displays statistics such as WPM/CPM, accuracy percentage, error percentage and total number of characters typed.
 - **Watch Typing History**: Users can watch their previous typing history and access their performance.
+- **Change Theme**: Users can change the theme of the app based on their preference from available theme palette.
 - **Responsive Design**: The user interface is designed to be responsive and adapt to different screen sizes, making it accessible on various laptops or PCs.
 
 ## Screenshots
