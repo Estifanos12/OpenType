@@ -1,1 +1,1 @@
-declare module 'use-react-screenshot';
+declare modul 'use-react-screenshot';
