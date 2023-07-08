@@ -3,7 +3,9 @@ import { useState, useCallback } from 'react';
 import { generateWord } from '../utils';
 
 export const useWord = (numberOfWords: number) => {
-  const [word, setWord] = useState<string>(generateWord(numberOfWords) + ' ');
+  const [word, setWord] = useState<string>(
+    () => generateWord(numberOfWords) + ' '
+  );
   const [totalWord, setTotalWord] = useState<string>(word);
 
   const appendWord = useCallback((word: string) => {
