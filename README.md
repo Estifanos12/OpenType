@@ -23,11 +23,9 @@ Check out the live demo [here](https://estifanos12.github.io/OpenType/).
 - [ ] Add virtual keyboard.
 - [ ] Add difficulty level.
 
-## Screenshots
+## Screenshots with different themes
 
-<img width="500" alt="Screen Shot 2022-08-28 at 9 15 36 AM" src="https://github.com/Estifanos12/OpenType/blob/main/screenshots/screenshot.jpg?raw=true">
-
-<img width="500" alt="Screen Shot 2022-08-28 at 9 15 36 AM" src="https://github.com/Estifanos12/OpenType/blob/main/screenshots/screenshot2.jpg?raw=true">
+<img width="700" alt="Screen Shot 2022-08-28 at 9 15 36 AM" src="https://github.com/Estifanos12/OpenType/blob/main/screenshots/screenshot-0.png?raw=true">
 
 <br>
 
