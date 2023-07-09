@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
 import { useClipboard } from '../hooks/useClipboard';
 import { useScreenShot } from '../hooks/useScreenShot';
@@ -18,6 +19,12 @@ type ModalContentProps = {
   history: HistoryType;
   results: Results;
 };
+
+const StyledCopyButton = styled.button`
+  &:hover {
+    color: ${({ theme }) => theme.text.secondary};
+  }
+`;
 
 const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
   const [copied, setCopied] = useState(false);
@@ -94,7 +101,7 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
       <div className='flex-[3] px-5'>
         <div className='flex items-center gap-2'>
           <h2 className='text-xl lg:text-2xl'>watch history</h2>
-          <button
+          <StyledCopyButton
             onClick={async () => {
               const isCopied = await copyTextToClipboard(history.typedHistory);
               if (isCopied) {
@@ -104,9 +111,10 @@ const ModalContent = ({ totalTime, history, results }: ModalContentProps) => {
                 }, 2000);
               }
             }}
+            theme={systemTheme}
           >
             <IoCopy className='cursor-pointer text-xl' />
-          </button>
+          </StyledCopyButton>
           <div
             className='rounded-md'
             style={{

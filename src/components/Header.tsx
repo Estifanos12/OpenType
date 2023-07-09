@@ -17,7 +17,7 @@ type HeaderProps = {
 const StyledSvg = styled.svg`
   width: 50px;
   height: 50px;
-  color: ${(props) => props.theme.text.title};
+  color: ${({ theme }) => theme.text.title};
 `;
 
 const Header = ({ restart, openAboutModal }: HeaderProps) => {

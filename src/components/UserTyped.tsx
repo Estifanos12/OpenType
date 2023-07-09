@@ -13,7 +13,7 @@ type UserTypedProps = {
 const StyledDiv = styled.div`
   &:last-child {
     &::after {
-      background-color: ${(props) => props.theme.text.secondary};
+      background-color: ${({ theme }) => theme.text.secondary};
     }
   }
 `;

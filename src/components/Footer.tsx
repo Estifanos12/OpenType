@@ -8,7 +8,7 @@ import Social from './Social';
 
 const StyledLink = styled.a`
   &:hover {
-    color: ${(props) => props.theme.text.title};
+    color: ${({ theme }) => theme.text.title};
   }
 `;
 

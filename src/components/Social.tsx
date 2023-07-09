@@ -11,8 +11,8 @@ type SocialProps = {
 
 const StyledSocial = styled.a`
   &:hover {
-    color: ${(props) => props.theme.text.title};
-    background-color: ${(props) => props.theme.background.secondary};
+    color: ${({ theme }) => theme.text.title};
+    background-color: ${({ theme }) => theme.background.secondary};
   }
 `;
 
