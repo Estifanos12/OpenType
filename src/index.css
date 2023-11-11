@@ -24,7 +24,7 @@ body {
     height: 24px;
     margin-bottom: -2px;
     display: inline-block;
-    animation: cursorBlink 1.5s steps(2) infinite;
+    animation: cursorBlink 0.65s steps(2) infinite;
   }
 }
 
