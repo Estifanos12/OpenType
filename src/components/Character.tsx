@@ -19,7 +19,7 @@ const Character = ({ state, character, className }: CharactersProps) => {
             : '#BD0101',
         backgroundColor: state === false && character === ' ' ? '#BD0101' : '',
       }}
-      className={` ${className}`}
+      className={`${className}`}
     >
       {character}
     </span>
