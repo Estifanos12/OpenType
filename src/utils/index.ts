@@ -35,20 +35,12 @@ export const generateWord = (n: number): string => {
   return faker.word.words(n);
 };
 
-export const calculateAccuracy = (expectedWord: string, typedWord: string) => {
-  let correctChars = 0;
-  for (let i = 0; i < typedWord.length; i++) {
-    if (typedWord[i] === expectedWord[i]) {
-      correctChars++;
-    }
-  }
+export const calculateAccuracy = (expectedWord: string, typedWord: string): AccuracyMetrics => {
+  const correctChars = typedWord.split('').filter((char, i) => char === expectedWord[i]).length;
+  const incorrectChars = typedWord.length - correctChars;
+  const accuracy = (correctChars / typedWord.length) * 100;
 
-  const accuracyMetrics: AccuracyMetrics = {
-    correctChars,
-    incorrectChars: typedWord.length - correctChars,
-    accuracy: (correctChars / typedWord.length) * 100,
-  };
-  return accuracyMetrics;
+  return { correctChars, incorrectChars, accuracy };
 };
 
 export const calculateWPM = (

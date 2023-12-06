@@ -3,10 +3,19 @@ import { useState, useEffect, useCallback } from 'react';
 import { useCursorPosition } from './useCursorPosition';
 import { isAllowedCode } from '../utils';
 
-type TypingState = 'idle' | 'start' | 'typing';
+export enum TypingState {
+  IDLE = 'idle',
+  START = 'start',
+  TYPING = 'typing',
+}
+
+export enum CursorPosition {
+  INCREASE = 'increase',
+  DECREASE = 'decrease',
+}
 
 export const useKeyDown = (active: boolean) => {
-  const [typingState, setTypingState] = useState<TypingState>('idle');
+  const [typingState, setTypingState] = useState<TypingState>(TypingState.IDLE);
   const [charTyped, setCharTyped] = useState<string>('');
   const [totalCharacterTyped, setTotalCharacterTyped] = useState<string>('');
 
@@ -23,18 +32,18 @@ export const useKeyDown = (active: boolean) => {
           setTotalCharacterTyped((prev) =>
             prev.slice(0, totalCharacterTyped.length - 1)
           );
-          updateCursorPosition('decrease');
+          updateCursorPosition(CursorPosition.DECREASE);
         }
         return;
       }
 
-      if (typingState === 'idle') {
-        setTypingState('start');
+      if (typingState === TypingState.IDLE) {
+        setTypingState(TypingState.START);
       }
 
       setCharTyped((prev) => prev + key);
       setTotalCharacterTyped((prev) => prev + key);
-      updateCursorPosition('increase');
+      updateCursorPosition(CursorPosition.INCREASE);
     },
     [
       active,
