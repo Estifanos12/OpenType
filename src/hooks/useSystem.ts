@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
-
-import { useCountdown } from './useCountdown';
-import { useKeyDown } from './useKeyDown';
+import { useTimer } from './useTimer';
+import { TypingState, useKeyDown } from './useKeyDown';
 import { useLocalStorage } from './useLocalStorage';
 import { useModal } from './useModal';
 import { useWord } from './useWord';
@@ -28,11 +27,12 @@ export const useSystem = () => {
     typedHistory: '',
   });
 
-  const { setLocalStorageValue, getLocalStorageValue } = useLocalStorage();
   const [wordContainerFocused, setWordContainerFocused] = useState(false);
-  const [time, setTime] = useState(() => getLocalStorageValue('time') || 15000);
-  const { countdown, resetCountdown, startCountdown } = useCountdown(time);
+
+  const { setLocalStorageValue } = useLocalStorage();
+  const {time, setTime, countdown, resetCountdown, startCountdown } = useTimer();
   const { word, updateWord, totalWord } = useWord(30);
+  const { modalIsOpen, aboutModal, openModal, closeModal } = useModal();
   const {
     charTyped,
     typingState,
@@ -43,14 +43,14 @@ export const useSystem = () => {
     setTotalCharacterTyped,
     setTypingState,
   } = useKeyDown(wordContainerFocused);
-  const { modalIsOpen, aboutModal, openModal, closeModal } = useModal();
+  
 
   const restartTest = useCallback(() => {
     resetCountdown();
     updateWord(true);
     resetCursorPointer();
     resetCharTyped();
-    setTypingState('idle');
+    setTypingState(TypingState.IDLE);
     setTotalCharacterTyped('');
   }, [
     resetCountdown,
@@ -62,13 +62,7 @@ export const useSystem = () => {
   ]);
 
   const checkCharacter = useCallback(
-    (index: number) => {
-      if (charTyped[index] === word[index]) {
-        return true;
-      } else {
-        return false;
-      }
-    },
+    (index: number) => charTyped[index] === word[index],
     [charTyped, word]
   );
 
@@ -78,9 +72,9 @@ export const useSystem = () => {
     resetCursorPointer();
   }
 
-  if (typingState === 'start') {
+  if (typingState === TypingState.START) {
     startCountdown();
-    setTypingState('typing');
+    setTypingState(TypingState.TYPING);
   }
 
   if (countdown === 0) {
