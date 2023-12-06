@@ -12,23 +12,7 @@ export const isAllowedCode = (code: string): boolean => {
 };
 
 export const isMobile = () => {
-  const userAgent = navigator.userAgent;
-
-  const mobileUserAgents = [
-    'Android',
-    'iPhone',
-    'iPad',
-    'iPod',
-    'BlackBerry',
-    'Windows Phone',
-  ];
-
-  for (let i = 0; i < mobileUserAgents.length; i++) {
-    if (userAgent.indexOf(mobileUserAgents[i]) !== -1) {
-      return true;
-    }
-  }
-  return false;
+  return window.matchMedia('(max-width: 768px)').matches;
 };
 
 export const generateWord = (n: number): string => {
